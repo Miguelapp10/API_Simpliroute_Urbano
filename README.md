@@ -1,4 +1,4 @@
-# Descripción del Script de Python para Extracción y Procesamiento de Datos de SimpliRoute Y Urbano
+# Script de Python para Extracción y Procesamiento de Datos de SimpliRoute Y Urbano
 Este script está diseñado para extraer datos de la API de SimpliRoute en un rango de fechas específico y procesarlos para su análisis y almacenamiento en Google BigQuery. A continuación, se presenta un resumen de cada sección del script:
 
 1. Importación de Bibliotecas y Configuración Inicial:
