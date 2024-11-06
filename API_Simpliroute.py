@@ -146,7 +146,7 @@ df_routes_vehicles = pd.merge(df_routes_selected, df_vehicles_selected, on='vehi
 # Unir los DataFrames en el campo común 'vehicle'
 df_visits_routes_vehicles = pd.merge(df_visits_selected, df_routes_vehicles, on=('vehicle','driver' ,'route', 'planned_date'), how='left')
 
-project_id = 'bi-fcom-drmb-local-pe-sbx'
+project_id = 'bi-local-pe'
 # Configuración del dataset y la tabla en BigQuery
 dataset_id = 'Devolucion'
 table_id = 'visits_IL'
@@ -270,7 +270,7 @@ df_routes_vehicles_qolqas = pd.merge(df_routes_qolqas_selected, df_vehicles_qolq
 
 # Unir los DataFrames en el campo común 'vehicle'
 df_visits_routes_vehicles_qolqas = pd.merge(df_visits_qolqas_selected,df_routes_vehicles_qolqas , on=('vehicle','driver' ,'route', 'planned_date'), how='left')
-project_id = 'bi-fcom-drmb-local-pe-sbx'
+project_id = 'bi-local-pe'
 
 # Configuración del dataset y la tabla en BigQuery
 dataset_id = 'Devolucion'
