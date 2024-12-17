@@ -1,5 +1,21 @@
-# Extracción y Procesamiento de Datos de SimpliRoute Y Urbano con Python
-Este script está diseñado para extraer datos de la API de SimpliRoute y Urbano en un rango de fechas específico y procesarlos para su análisis y almacenamiento en Google BigQuery. A continuación, se presenta un resumen de cada sección del script:
+# Proyecto: Integración de Operador Logistico ( Simpliroute , Urbano y AndesExpress) con Python
+
+Este proyecto está diseñado para interactuar con la API de Simpliroute , Urbano y AndesExpress, en un rango de fechas específico y procesarlos para su análisis y almacenamiento en Google BigQuery
+
+## Descripción
+
+El propósito principal de este proyecto es:
+- Extraer datos relevantes de la API de SimpliRoute, Urbano y AndesExpress.
+- Procesar y limpiar los datos para un análisis eficiente.
+- Integrar los resultados con herramientas como BigQuery y Looker Studio.
+  
+## Recursos
+
+- Página web de SimpliRoute: [https://app3.simpliroute.com/](https://app3.simpliroute.com/)
+- Página web de Urbano: [https://portal.urbano.com.pe/login](https://portal.urbano.com.pe/login)
+- Página web de AndesExpress: [https://andesexpress.pe/](https://andesexpress.pe/)
+
+se presenta un resumen de cada sección del script:
 
 1. Importación de Bibliotecas y Configuración Inicial:
 
