@@ -10,8 +10,10 @@ from requests.adapters import HTTPAdapter
 from requests.packages.urllib3.util.retry import Retry
 #from google.colab import files
 #from google.colab import auth
+from io import BytesIO
 from google.cloud import bigquery
 import warnings
+from pandas_gbq import to_gbq 
 from concurrent.futures import ThreadPoolExecutor, as_completed  # Asegúrate de importar as_completed
 # Suprimir sólo las advertencias de InsecureRequestWarning
 warnings.filterwarnings('ignore', category=InsecureRequestWarning)
@@ -146,13 +148,15 @@ df_routes_vehicles = pd.merge(df_routes_selected, df_vehicles_selected, on='vehi
 # Unir los DataFrames en el campo común 'vehicle'
 df_visits_routes_vehicles = pd.merge(df_visits_selected, df_routes_vehicles, on=('vehicle','driver' ,'route', 'planned_date'), how='left')
 
-project_id = 'bi-local-pe'
+project_id = ''
+
 # Configuración del dataset y la tabla en BigQuery
-dataset_id = 'Devolucion'
-table_id = 'visits_IL'
+dataset_id = ''
+table_id = 'SimpliRoute_visits_IL'
+
 
 # Carga el DataFrame a BigQuery
-df_visits_routes_vehicles.to_gbq(destination_table=f"{dataset_id}.{table_id}",
+to_gbq(df_visits_routes_vehicles,destination_table=f"{dataset_id}.{table_id}",
                    project_id=project_id,
                    if_exists="replace")  # Opciones: "append", "replace", "fail"
 
@@ -270,15 +274,14 @@ df_routes_vehicles_qolqas = pd.merge(df_routes_qolqas_selected, df_vehicles_qolq
 
 # Unir los DataFrames en el campo común 'vehicle'
 df_visits_routes_vehicles_qolqas = pd.merge(df_visits_qolqas_selected,df_routes_vehicles_qolqas , on=('vehicle','driver' ,'route', 'planned_date'), how='left')
-project_id = 'bi-local-pe'
 
 # Configuración del dataset y la tabla en BigQuery
-dataset_id = 'Devolucion'
-table_id = 'visits_Qolqas'
+table_id_1= 'SimpliRoute_visits_Qolqas'
 
 # Carga el DataFrame a BigQuery
-df_visits_routes_vehicles_qolqas.to_gbq(destination_table=f"{dataset_id}.{table_id}",
-                   project_id=project_id,
-                   if_exists="replace")  # Opciones: "append", "replace", "fail"
+to_gbq(df_visits_routes_vehicles_qolqas,
+       destination_table=f"{dataset_id}.{table_id_1}",
+        project_id=project_id,
+        if_exists="replace")  # Opciones: "append", "replace", "fail"
 
 print("Los datos se han cargado exitosamente en BigQuery.")
